@@ -1,15 +1,17 @@
 #include "cub3d.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_game game;
+	t_game	game;
+
 	ft_initParam(&game);
 	if (ac < 2)
 	{
 		write (1, "Error:\nNo maps given", 20);
 		return (1);
 	}
-	if (!(ft_parsing(&game, av[1])) || (!ft_checksprite(&game)) || (!ft_spriteparam(&game)))
+	if (!(ft_parsing(&game, av[1]))
+		|| (!ft_checksprite(&game)) || (!ft_spriteparam(&game)))
 	{	
 		ft_freeparams(&game);
 		return (1);

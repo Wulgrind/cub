@@ -24,7 +24,7 @@ int	ft_checkEnd(char *map)
 
 int	ft_parseline(t_game *game, char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i] == ' ')
@@ -38,13 +38,13 @@ int	ft_parseline(t_game *game, char *line)
 	if (line[i] == 'W' && line[i + 1] == 'E')
 		ft_parseWE(game, line);
 	if (line[i] == 'E' && line[i + 1] == 'A')
-                ft_parseEA(game, line); 
+		ft_parseEA(game, line);
 	if (line[i] == 'S')
-                ft_parseS(game, line);
+		ft_parseS(game, line);
 	if (line[i] == 'F')
-                ft_parseF(game, line);
+		ft_parseF(game, line);
 	if (line[i] == 'C')
-                ft_parseC(game, line);
+		ft_parseC(game, line);
 	if (ft_isdigit(line[i]))
 		ft_parseMap(game, line);
 	return (1);
@@ -53,15 +53,15 @@ int	ft_parseline(t_game *game, char *line)
 int	ft_parsing2(t_game *game, char *map)
 {
 	if (!(ft_checkParams(game)))
-        {
-                write(1, "Error:\nLacking parameters in the .cub file",  42);
-                return (0);
-        }
-        if (!ft_checkMap(game) || !ft_checkMap2(game) || !ft_checkMap3(game))
-        {
-                write(1, "Error:\nInvalid map", 18);
-                return (0);
-        }
+	{
+		write(1, "Error:\nLacking parameters in the .cub file", 42);
+		return (0);
+	}
+	if (!ft_checkMap(game) || !ft_checkMap2(game) || !ft_checkMap3(game))
+	{
+		write(1, "Error:\nInvalid map", 18);
+		return (0);
+	}
 	if (!ft_checkpos(game))
 	{
 		write(1, "Error:\nInvalid map", 18);
@@ -70,17 +70,30 @@ int	ft_parsing2(t_game *game, char *map)
 	return (1);
 }
 
+int	ft_parsingbis(t_game *game, char *map)
+{
+	if (!ft_createmap(game))
+	{
+		write(1, "Error:\nbad map argument", 23);
+		return (0);
+	}
+	if (!ft_parsing2(game, map))
+		return (0);
+	return (1);
+}
+
 int	ft_parsing(t_game *game, char *map)
 {
-	int	count;
+	int		count;
 	char	*line;
 
 	if (!(ft_checkEnd(map)))
-                return (0);
-	if ((count = open(map, O_RDONLY)) < 0)
+		return (0);
+	count = open(map, O_RDONLY);
+	if (count < 0)
 	{
 		write(1, "Error:\nCan't read map", 21);
-		return (0); 
+		return (0);
 	}
 	while (get_next_line(count, &line))
 	{
@@ -89,12 +102,7 @@ int	ft_parsing(t_game *game, char *map)
 	}
 	free (line);
 	close (count);
-	if (!ft_createmap(game))
-	{
-		write(1, "Error:\nbad map argument",  23);
-		return (0);
-	}
-	if (!ft_parsing2(game, map))
+	if (!ft_parsingbis(game, map))
 		return (0);
 	return (1);
 }
