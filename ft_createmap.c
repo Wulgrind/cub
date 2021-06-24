@@ -41,7 +41,7 @@ int		ft_createmap(t_game *game)
 	ft_n(game);
 	while (game->param.save[i])
 	{
-		if (game->param.save[i] == '0' || game->param.save[i] == '1' || game->param.save[i] == '2' || game->param.save[i] == '9' || game->param.save[i] == '3' || game->param.save[i] == '4' || game->param.save[i] == '5' || game->param.save[i] == '6')
+		if (game->param.save[i] == '0' || game->param.save[i] == '1' || game->param.save[i] == '9' || game->param.save[i] == '3' || game->param.save[i] == '4' || game->param.save[i] == '5' || game->param.save[i] == '6')
 		{
 			game->map[j][a] = game->param.save[i] - '0';
 			a++;
