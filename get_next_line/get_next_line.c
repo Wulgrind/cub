@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int		ft_check(char *str)
+int	ft_check(char *str)
 {
 	int	i;
 
@@ -40,7 +40,14 @@ int		ft_check(char *str)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+void	gnl2(char **line, char **save, char **buff)
+{
+	free (*buff);
+	*line = ft_newline(*save);
+	*save = ft_newsave(*save);
+}
+
+int	get_next_line(int fd, char **line)
 {
 	static char	*save;
 	char		*buff;
@@ -49,11 +56,13 @@ int		get_next_line(int fd, char **line)
 	ret = 1;
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	if (!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buff)
 		return (-1);
 	while (!ft_check(save) && ret != 0)
 	{
-		if ((ret = read(fd, buff, BUFFER_SIZE)) == -1)
+		ret = read(fd, buff, BUFFER_SIZE);
+		if (ret == -1)
 		{
 			free(buff);
 			return (-1);
@@ -61,9 +70,7 @@ int		get_next_line(int fd, char **line)
 		buff[ret] = '\0';
 		save = ft_cpy(save, buff);
 	}
-	free(buff);
-	*line = ft_newline(save);
-	save = ft_newsave(save);
+	gnl2(line, &save, &buff);
 	if (ret == 0)
 		return (0);
 	return (1);

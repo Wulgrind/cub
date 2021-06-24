@@ -1,87 +1,87 @@
 #include "cub3d.h"
 
-int     ft_parseEA(t_game *game, char *line)
+int	ft_parseEA(t_game *game, char *line)
 {
-        int     i;
-        int     j;
+	int	i;
+	int	j;
 
-        i = 0;
-        while (ft_isalpha(line[i]))
-                i++;
-        while (!ft_isalpha(line[i]))
-                i++;
-        j = i - 1;
-        while (ft_isalpha(line[i]))
-                i++;
-        game->param.EA = malloc(sizeof(char) * (i - j + 1));
-        if (game->param.EA == NULL)
-                return (0);
-        i = 0;
-        j++;
-        while (ft_isalpha(line[j]))
-        {
-                game->param.EA[i] = line[j];
-                i++;
-                j++;
-        }
-        game->param.EA[i] = '\0';
-        return (1);
+	i = 0;
+	while (ft_isalpha(line[i]))
+		i++;
+	while (!ft_isalpha(line[i]))
+		i++;
+	j = i - 1;
+	while (ft_isalpha(line[i]))
+		i++;
+	game->param.EA = malloc(sizeof(char) * (i - j + 1));
+	if (game->param.EA == NULL)
+		return (0);
+	i = 0;
+	j++;
+	while (ft_isalpha(line[j]))
+	{
+		game->param.EA[i] = line[j];
+		i++;
+		j++;
+	}
+	game->param.EA[i] = '\0';
+	return (1);
 }
 
-int     ft_parseWE(t_game *game, char *line)
+int	ft_parseWE(t_game *game, char *line)
 {
-        int     i;
-        int     j;
+	int	i;
+	int	j;
 
-        i = 0;
-        while (ft_isalpha(line[i]))
-                i++;
-        while (!ft_isalpha(line[i]))
-                i++;
-        j = i - 1;
-        while (ft_isalpha(line[i]))
-                i++;
-        game->param.WE = malloc(sizeof(char) * (i - j + 1));
-        if (game->param.WE == NULL)
-                return (0);
-        i = 0;
-        j++;
-        while (ft_isalpha(line[j]))
-        {
-                game->param.WE[i] = line[j];
-                i++;
-                j++;
-        }
-        game->param.WE[i] = '\0';
-        return (1);
+	i = 0;
+	while (ft_isalpha(line[i]))
+		i++;
+	while (!ft_isalpha(line[i]))
+		i++;
+	j = i - 1;
+	while (ft_isalpha(line[i]))
+		i++;
+	game->param.WE = malloc(sizeof(char) * (i - j + 1));
+	if (game->param.WE == NULL)
+		return (0);
+	i = 0;
+	j++;
+	while (ft_isalpha(line[j]))
+	{
+		game->param.WE[i] = line[j];
+		i++;
+		j++;
+	}
+	game->param.WE[i] = '\0';
+	return (1);
 }
 
-int     ft_parseSO(t_game *game, char *line)
+int	ft_parseSO(t_game *game, char *line)
 {
-        int     i;
-        int     j;
+	int	i;
+	int	j;
 
-        i = 0;
-        while (ft_isalpha(line[i]))
-                i++;
-        while (!ft_isalpha(line[i]))
-                i++;
-        j = i - 1;
-        while (ft_isalpha(line[i]))
-                i++;
-        game->param.SO = malloc(sizeof(char) * (i - j + 1));
-        if (game->param.SO == NULL)
-                return (0);
-        i = 0;
-        j++;
-        while (ft_isalpha(line[j]))
-        {
-                game->param.SO[i] = line[j];
-                i++;
-                j++;
-        }
-        game->param.SO[i] = '\0';
-        return (1);
+	i = 0;
+	while (ft_isalpha(line[i]))
+		i++;
+	while (!ft_isalpha(line[i]))
+		i++;
+	j = i - 1;
+	while (ft_isalpha(line[i]))
+		i++;
+	game->param.SO = malloc(sizeof(char) * (i - j + 1));
+	if (game->param.SO == NULL)
+		return (0);
+	i = 0;
+	j++;
+	while (ft_isalpha(line[j]))
+	{
+		game->param.SO[i] = line[j];
+		i++;
+		j++;
+	}
+	game->param.SO[i] = '\0';
+	return (1);
 }
 
 int	ft_parseNO(t_game *game, char *line)

@@ -18,9 +18,9 @@
 # include <unistd.h>
 # include "../cub3d.h"
 
-int	get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line);
 char	*ft_cpy(char const *s1, char const *s2);
-int	ft_check(char *save);
+int		ft_check(char *save);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlen(const char *str);
 char	*ft_newline(char *str);

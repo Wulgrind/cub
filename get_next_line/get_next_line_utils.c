@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-void		*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char	*d;
 	char	*s;
@@ -32,7 +32,7 @@ void		*ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 
-char		*ft_cpy(char const *s1, char const *s2)
+char	*ft_cpy(char const *s1, char const *s2)
 {
 	size_t	len1;
 	size_t	len2;
@@ -44,7 +44,8 @@ char		*ft_cpy(char const *s1, char const *s2)
 	len1 = ft_strlen((char *)s1);
 	len2 = ft_strlen((char *)s2);
 	total = len1 + len2 + 1;
-	if (!(ret = malloc(sizeof(char) * total)))
+	ret = malloc(sizeof(char) * total);
+	if (!ret)
 		return (0);
 	ft_memmove(ret, s1, len1);
 	ft_memmove(ret + len1, s2, len2);
@@ -53,7 +54,7 @@ char		*ft_cpy(char const *s1, char const *s2)
 	return (ret);
 }
 
-char		*ft_newline(char *str)
+char	*ft_newline(char *str)
 {
 	int		i;
 	char	*ret;
@@ -63,7 +64,8 @@ char		*ft_newline(char *str)
 		return (0);
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (!(ret = malloc(sizeof(char) * (i + 1))))
+	ret = malloc(sizeof(char) * (i + 1));
+	if (!ret)
 		return (0);
 	i = 0;
 	while (str[i] && str[i] != '\n')
@@ -75,7 +77,7 @@ char		*ft_newline(char *str)
 	return (ret);
 }
 
-char		*ft_newsave(char *save)
+char	*ft_newsave(char *save)
 {
 	char	*ret;
 	int		i;
@@ -92,7 +94,8 @@ char		*ft_newsave(char *save)
 		free(save);
 		return (0);
 	}
-	if (!(ret = malloc(sizeof(char) * ((ft_strlen(save) - i) + 1))))
+	ret = malloc(sizeof(char) * ((ft_strlen(save) - i) + 1));
+	if (!ret)
 		return (0);
 	i++;
 	while (save[i])

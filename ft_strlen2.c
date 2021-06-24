@@ -1,8 +1,8 @@
 #include "cub3d.h"
 
-int ft_strlen2(char *str)
+int	ft_strlen2(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
