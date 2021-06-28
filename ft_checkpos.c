@@ -67,7 +67,7 @@ int	ft_checkst (t_game *game)
 		}
 		row++;
 	}
-	if (check != 1 || game->param.false >= game->param.row)
+	if (check <= 1 || game->param.false >= game->param.row)
 		return (0);
 	return (1);
 }
