@@ -65,19 +65,15 @@ void	ft_translate(t_game *game)
 	i = 0;
 	while (game->param.save[i])
 	{
-		if (game->param.save[i] == '9' || game->param.save[i] == '3'
-			|| game->param.save[i] == '4'
-			|| game->param.save[i] == '5' || game->param.save[i] == '6')
+		if (game->param.save[i] == '9')
 			game->param.false++;
-		 if (game->param.save[i] == ' ')
-			game->param.save[i] = '9';
-		 if (game->param.save[i] == 'N')
+		if (game->param.save[i] == 'N')
 			game->param.save[i] = '3';
-		 if (game->param.save[i] == 'S')
+		if (game->param.save[i] == 'S')
 			game->param.save[i] = '4';
-		 if (game->param.save[i] == 'W')
+		if (game->param.save[i] == 'W')
 			game->param.save[i] = '5';
-		 if (game->param.save[i] == 'E')
+		if (game->param.save[i] == 'E')
 			game->param.save[i] = '6';
 		i++;
 	}

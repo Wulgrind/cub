@@ -67,7 +67,7 @@ int	ft_checkst (t_game *game)
 		}
 		row++;
 	}
-	if (check <= 1 || game->param.false >= game->param.row)
+	if (check != 1)
 		return (0);
 	return (1);
 }
@@ -94,7 +94,7 @@ int	ft_checkpos(t_game *game)
 		}
 		row++;
 	}
-	if (!ft_checkst(game))
+	if (!ft_checkst(game) || game->param.false > 0)
 		return (0);
 	return (1);
 }

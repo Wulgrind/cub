@@ -34,11 +34,14 @@ int	ft_assign(t_game *game, int *i, int *j, int *a)
 	while (game->param.save[*i])
 	{
 		if (game->param.save[*i] == '0' || game->param.save[*i] == '1'
-			|| game->param.save[*i] == '9' || game->param.save[*i] == '3'
+			|| game->param.save[*i] == ' ' || game->param.save[*i] == '3'
 			|| game->param.save[*i] == '4' || game->param.save[*i] == '5'
 			|| game->param.save[*i] == '6')
 		{
-			game->map[*j][*a] = game->param.save[*i] - '0';
+			if (game->param.save[*i] == ' ')
+				game->map[*j][*a] = 9;
+			else
+				game->map[*j][*a] = game->param.save[*i] - '0';
 			(*a)++;
 		}
 		else if (game->param.save[*i] == '\n')
@@ -48,9 +51,7 @@ int	ft_assign(t_game *game, int *i, int *j, int *a)
 			(*j)++;
 		}
 		else
-		{
 			return (0);
-		}
 		(*i)++;
 	}
 	return (1);
