@@ -81,6 +81,7 @@ void	ft_translate(t_game *game)
 
 int	ft_parseMap(t_game *game, char *line)
 {
+	ft_chkOrder(game);
 	game->param.save = ft_cpys(game, line);
 	game->param.row = ft_countline(game);
 	ft_translate(game);

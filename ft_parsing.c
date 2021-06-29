@@ -29,8 +29,6 @@ int	ft_parseline(t_game *game, char *line)
 	i = 0;
 	while (line[i] == ' ')
 		i++;
-	if (line[i] == 'R')
-		ft_parseR(game, line);
 	if (line[i] == 'N' && line[i + 1] == 'O')
 		ft_parseNO(game, line);
 	if (line[i] == 'S' && line[i + 1] == 'O')
@@ -39,8 +37,6 @@ int	ft_parseline(t_game *game, char *line)
 		ft_parseWE(game, line);
 	if (line[i] == 'E' && line[i + 1] == 'A')
 		ft_parseEA(game, line);
-	if (line[i] == 'S')
-		ft_parseS(game, line);
 	if (line[i] == 'F')
 		ft_parseF(game, line);
 	if (line[i] == 'C')

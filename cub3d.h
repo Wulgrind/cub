@@ -164,9 +164,10 @@ void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);
 int		ft_checkpos(t_game *game);
-void	ft_freeparams(t_game *game);
+int		ft_freeparams(t_game *game);
 int		ft_checksprite(t_game *game);
 int		ft_spriteparam(t_game *game);
 void	ft_mainloop2(t_game *game);
+void	ft_chkOrder(t_game *game);
 
 #endif

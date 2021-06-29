@@ -20,6 +20,7 @@ int	main(int ac, char **av)
 	mlx_loop_hook(game.mlx, &ft_mainLoop, &game);
 	mlx_hook(game.win, X_EVENT_KEY_PRESS, 0, &key_press, &game);
 	mlx_hook(game.win, X_EVENT_KEY_RELEASE, 0, &key_release, &game);
+	mlx_hook(game.win, X_EVENT_KEY_EXIT, 0, &ft_freeparams, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }

@@ -15,6 +15,7 @@ void	ft_freeparams3(t_game *game)
 	}
 	if (game->sprite)
 		free (game->sprite);
+	exit (0);
 }
 
 void	ft_freeparams2(t_game *game)
@@ -37,7 +38,7 @@ void	ft_freeparams2(t_game *game)
 	ft_freeparams3(game);
 }
 
-void	ft_freeparams(t_game *game)
+int	ft_freeparams(t_game *game)
 {
 	if (game->param.NO)
 		free (game->param.NO);
@@ -60,6 +61,7 @@ void	ft_freeparams(t_game *game)
 	if (game->param.spriteDistance)
 		free(game->param.spriteDistance);
 	ft_freeparams2(game);
+	return (1);
 }
 
 int	key_press(int keycode, t_game *game)

@@ -39,10 +39,6 @@ int	window_init(t_game *game)
 	game->move.backward = 0;
 	game->move.right = 0;
 	game->move.left = 0;
-	if (game->param.screenWidth > 1980)
-		game->param.screenWidth = 1980;
-	if (game->param.screenHeight > 1080)
-		game->param.screenHeight = 1080;
 	return (1);
 }
 
@@ -63,4 +59,6 @@ void	ft_initParam(t_game *game)
 	game->param.spriteOrder = NULL;
 	game->sprite = NULL;
 	game->map = NULL;
+	game->param.screenHeight = 480;
+	game->param.screenWidth = 680;
 }
