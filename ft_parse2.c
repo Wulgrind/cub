@@ -34,25 +34,20 @@ int	ft_parseF(t_game *game, char *line)
 	int	j;
 
 	i = 0;
-	while (ft_isalpha(line[i]))
+	j = 0;
+	while (!ft_isdigit(line[i]))
 		i++;
-	while (!ft_isalpha(line[i]))
-		i++;
-	j = i - 1;
-	while (ft_isalpha(line[i]))
-		i++;
-	game->param.F = malloc(sizeof(char) * (i - j + 1));
-	if (game->param.F == NULL)
-		return (0);
-	i = 0;
-	j++;
-	while (ft_isalpha(line[j]))
+	while (line[i])
 	{
-		game->param.F[i] = line[j];
+		if (ft_isdigit(line[i]))
+		{
+			game->param.F[j] *= 10;
+			game->param.F[j] += (line[i] - '0');
+		}
+		if (line[i] == ',')
+			j++;
 		i++;
-		j++;
 	}
-	game->param.F[i] = '\0';
 	return (1);
 }
 
@@ -62,24 +57,19 @@ int	ft_parseC(t_game *game, char *line)
 	int	j;
 
 	i = 0;
-	while (ft_isalpha(line[i]))
+	j = 0;
+	while (!ft_isdigit(line[i]))
 		i++;
-	while (!ft_isalpha(line[i]))
-		i++;
-	j = i - 1;
-	while (ft_isalpha(line[i]))
-		i++;
-	game->param.C = malloc(sizeof(char) * (i - j + 1));
-	if (game->param.C == NULL)
-		return (0);
-	i = 0;
-	j++;
-	while (ft_isalpha(line[j]))
+	while (line[i])
 	{
-		game->param.C[i] = line[j];
+		if (ft_isdigit(line[i]))
+		{
+			game->param.C[j] *= 10;
+			game->param.C[j] += (line[i] - '0');
+		}
+		if (line[i] == ',')
+			j++;
 		i++;
-		j++;
 	}
-	game->param.C[i] = '\0';
 	return (1);
 }

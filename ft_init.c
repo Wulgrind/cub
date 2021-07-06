@@ -39,11 +39,17 @@ int	window_init(t_game *game)
 	game->move.backward = 0;
 	game->move.right = 0;
 	game->move.left = 0;
+	game->move.strafeLeft = 0;
+	game->move.strafeRight = 0;
+	game->isDigit = 0;
 	return (1);
 }
 
 void	ft_initParam(t_game *game)
 {
+	int	i;
+
+	i = 0;
 	game->param.S = 0;
 	game->param.row = 0;
 	game->param.NO = NULL;
@@ -51,8 +57,6 @@ void	ft_initParam(t_game *game)
 	game->param.WE = NULL;
 	game->param.EA = NULL;
 	game->param.save = NULL;
-	game->param.F = NULL;
-	game->param.C = NULL;
 	game->param.false = 0;
 	game->param.ZBuffer = NULL;
 	game->param.spriteDistance = NULL;
@@ -61,4 +65,10 @@ void	ft_initParam(t_game *game)
 	game->map = NULL;
 	game->param.screenHeight = 480;
 	game->param.screenWidth = 680;
+	while (i <= 2)
+	{
+		game->param.F[i] = 0;
+		game->param.C[i] = 0;
+		i++;
+	}
 }

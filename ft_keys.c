@@ -48,10 +48,6 @@ int	ft_freeparams(t_game *game)
 		free (game->param.WE);
 	if (game->param.EA)
 		free (game->param.EA);
-	if (game->param.F)
-		free (game->param.F);
-	if (game->param.C)
-		free (game->param.C);
 	if (game->param.S)
 		free (game->param.S);
 	if (game->param.ZBuffer)
@@ -70,10 +66,14 @@ int	key_press(int keycode, t_game *game)
 		game->move.forward = 1;
 	else if (keycode == KEY_S)
 		game->move.backward = 1;
-	if (keycode == KEY_A)
+	else if (keycode == KEY_LEFT)
 		game->move.left = 1;
-	else if (keycode == KEY_D)
+	else if (keycode == KEY_RIGHT)
 		game->move.right = 1;
+	else if (keycode == KEY_D)
+		game->move.strafeRight = 1;
+	else if (keycode == KEY_A)
+		game->move.strafeLeft = 1;
 	else if (keycode == KEY_ESC)
 	{
 		ft_freeparams(game);
@@ -88,9 +88,13 @@ int	key_release(int keycode, t_game *game)
 		game->move.forward = 0;
 	else if (keycode == KEY_S)
 		game->move.backward = 0;
-	else if (keycode == KEY_A)
+	else if (keycode == KEY_LEFT)
 		game->move.left = 0;
-	else if (keycode == KEY_D)
+	else if (keycode == KEY_RIGHT)
 		game->move.right = 0;
+	else if (keycode == KEY_D)
+		game->move.strafeRight = 0;
+	else if (keycode == KEY_A)
+		game->move.strafeLeft = 0;
 	return (0);
 }

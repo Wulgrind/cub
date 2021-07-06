@@ -25,26 +25,6 @@ typedef struct s_ceiling
 
 }		t_ceiling;
 
-int	ft_generate(t_game *game, t_ceiling *ceiling)
-{
-	ceiling->floorTexture.img = mlx_xpm_file_to_image(game->mlx, game->param.F,
-			&ceiling->floorTexture.img_width,
-			&ceiling->floorTexture.img_height);
-	ceiling->floorTexture.data = (int *)mlx_get_data_addr
-		(ceiling->floorTexture.img,
-			&ceiling->floorTexture.bpp, &ceiling->floorTexture.size_l,
-			&ceiling->floorTexture.endian);
-	ceiling->ceilingTexture.img
-		= mlx_xpm_file_to_image(game->mlx, game->param.C,
-			&ceiling->ceilingTexture.img_width,
-			&ceiling->ceilingTexture.img_height);
-	ceiling->ceilingTexture.data
-		= (int *)mlx_get_data_addr(ceiling->ceilingTexture.img,
-			&ceiling->ceilingTexture.bpp,
-			&ceiling->ceilingTexture.size_l, &ceiling->ceilingTexture.endian);
-	return (1);
-}
-
 int	ft_ceiling2(t_game *game, t_ceiling *ceiling)
 {
 	ceiling->x = 0;
@@ -60,13 +40,12 @@ int	ft_ceiling2(t_game *game, t_ceiling *ceiling)
 			& (ceiling->floorTexture.img_height - 1);
 		ceiling->floorX += ceiling->floorStepX;
 		ceiling->floorY += ceiling->floorStepY;
-		ceiling->color
-			= ceiling->floorTexture.data[ceiling->floorTexture.img_width
-			* ceiling->ty + ceiling->tx];
+		ceiling->color = 65536 * game->param.C[0] + 256
+			* game->param.C[1] + game->param.C[2];
 		game->display.data[ceiling->y *game->param.screenWidth + ceiling->x]
 			 = ceiling->color;
-		ceiling->color = ceiling->ceilingTexture.data
-		[ceiling->floorTexture.img_width * ceiling->ty + ceiling->tx];
+		ceiling->color = 65536 * game->param.F[0] + 256
+			* game->param.F[1] + game->param.F[2];
 		game->display.data[((game->param.screenHeight - ceiling->y - 1)
 				* game->param.screenWidth) + ceiling->x] = ceiling->color;
 		ceiling->x++;
@@ -79,7 +58,6 @@ int	ft_ceiling1(t_game *game)
 	t_ceiling	ceiling;
 
 	ceiling.y = 0;
-	ft_generate(game, &ceiling);
 	while (ceiling.y < game->param.screenHeight)
 	{	
 		ceiling.rayDirX0 = game->cam.dirX - game->cam.planeX;

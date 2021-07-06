@@ -16,6 +16,7 @@ int	ft_move3(t_game *game)
 		}
 		y++;
 	}
+	ft_move4(game);
 	return (1);
 }
 

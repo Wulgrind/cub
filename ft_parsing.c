@@ -42,7 +42,12 @@ int	ft_parseline(t_game *game, char *line)
 	if (line[i] == 'C')
 		ft_parseC(game, line);
 	if (ft_isdigit(line[i]))
+	{
 		ft_parseMap(game, line);
+		game->isDigit = 1;
+	}
+	if (!(ft_isdigit(line[i])) && game->isDigit == 1)
+		game->param.false++;
 	return (1);
 }
 

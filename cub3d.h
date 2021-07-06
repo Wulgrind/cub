@@ -16,10 +16,11 @@
 # define KEY_Q 12
 # define KEY_W 13
 # define KEY_E 14
-# define KEY_R 15
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
 
 typedef struct s_param
 {
@@ -29,8 +30,8 @@ typedef struct s_param
 	char	*SO;
 	char	*WE;
 	char	*EA;
-	char	*F;
-	char	*C;
+	int	F[3];
+	int	C[3];
 	char	*S;
 	int		row;
 	char	*save;
@@ -57,6 +58,8 @@ typedef struct s_move
 	int		backward;
 	int		right;
 	int		left;
+	int		strafeRight;
+	int		strafeLeft;
 	double	moveSpeed;
 	double	rotSpeed;
 	double	oldDirX;
@@ -123,6 +126,7 @@ typedef struct s_game
 	t_move			move;
 	t_param			param;
 	double			**sprite;
+	int				isDigit;
 }		t_game;
 
 int		ft_parsing(t_game *game, char *map);
@@ -169,5 +173,6 @@ int		ft_checksprite(t_game *game);
 int		ft_spriteparam(t_game *game);
 void	ft_mainloop2(t_game *game);
 void	ft_chkOrder(t_game *game);
+void	ft_move4(t_game *game);
 
 #endif

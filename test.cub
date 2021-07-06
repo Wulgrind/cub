@@ -2,8 +2,8 @@ NO textures/bluestone.xpm
 SO textures/eagle.xpm
 WE textures/redbrick.xpm
 EA textures/mossy.xpm
-F textures/wood.xpm
-C textures/greystone.xpm
+F 182,19,19
+C 0,255,255
 1111111111111111111111111
 1110000000010100000000001
 1000000000001000000001111
