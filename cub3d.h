@@ -2,7 +2,7 @@
 # define CUB3D_H
 
 # include "get_next_line/get_next_line.h"
-# include "mlx/mlx.h"
+# include <mlx.h>
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
