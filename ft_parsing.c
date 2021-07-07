@@ -51,7 +51,7 @@ int	ft_parseline(t_game *game, char *line)
 	return (1);
 }
 
-int	ft_parsing2(t_game *game, char *map)
+int	ft_parsing2(t_game *game)
 {
 	if (!(ft_checkParams(game)))
 	{
@@ -71,14 +71,14 @@ int	ft_parsing2(t_game *game, char *map)
 	return (1);
 }
 
-int	ft_parsingbis(t_game *game, char *map)
+int	ft_parsingbis(t_game *game)
 {
 	if (!ft_createmap(game))
 	{
 		write(1, "Error:\nbad map argument", 23);
 		return (0);
 	}
-	if (!ft_parsing2(game, map))
+	if (!ft_parsing2(game))
 		return (0);
 	return (1);
 }
@@ -103,7 +103,7 @@ int	ft_parsing(t_game *game, char *map)
 	}
 	free (line);
 	close (count);
-	if (!ft_parsingbis(game, map))
+	if (!ft_parsingbis(game))
 		return (0);
 	return (1);
 }
