@@ -18,7 +18,7 @@ int	ft_checkEnd(char *map)
 	{
 		return (1);
 	}
-	write(1, "Error:\nBad parameter extension", 30);
+	write(1, "Error\nBad parameter extension", 30);
 	return (0);
 }
 
@@ -55,17 +55,17 @@ int	ft_parsing2(t_game *game)
 {
 	if (!(ft_checkParams(game)))
 	{
-		write(1, "Error:\nLacking parameters in the .cub file", 42);
+		write(1, "Error\nLacking parameters in the .cub file", 42);
 		return (0);
 	}
 	if (!ft_checkMap(game) || !ft_checkMap2(game) || !ft_checkMap3(game))
 	{
-		write(1, "Error:\nInvalid map", 18);
+		write(1, "Error\nInvalid map", 18);
 		return (0);
 	}
 	if (!ft_checkpos(game))
 	{
-		write(1, "Error:\nInvalid map", 18);
+		write(1, "Error\nInvalid map", 18);
 		return (0);
 	}
 	return (1);
@@ -75,7 +75,7 @@ int	ft_parsingbis(t_game *game)
 {
 	if (!ft_createmap(game))
 	{
-		write(1, "Error:\nbad map argument", 23);
+		write(1, "Error\nbad map argument", 23);
 		return (0);
 	}
 	if (!ft_parsing2(game))
@@ -93,7 +93,7 @@ int	ft_parsing(t_game *game, char *map)
 	count = open(map, O_RDONLY);
 	if (count < 0)
 	{
-		write(1, "Error:\nCan't read map", 21);
+		write(1, "Error\nCan't read map", 21);
 		return (0);
 	}
 	while (get_next_line(count, &line))

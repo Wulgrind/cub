@@ -7,7 +7,7 @@ int	main(int ac, char **av)
 	ft_initParam(&game);
 	if (ac < 2)
 	{
-		write (1, "Error:\nNo maps given", 20);
+		write (1, "Error\nNo maps given", 20);
 		return (1);
 	}
 	if (!(ft_parsing(&game, av[1]))
