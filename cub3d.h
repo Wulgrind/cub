@@ -127,6 +127,25 @@ typedef struct s_game
 	t_param			param;
 	double			**sprite;
 	int				isDigit;
+	int				y2;
+	int				x2;
+	float			rayDirX0;
+	float			rayDirY0;
+	float			rayDirX1;
+	float			rayDirY1;
+	int				p;
+	float			posZ;
+	float			rowDistance;
+	float			floorStepX;
+	float			floorStepY;
+	float			floorX;
+	float			floorY;
+	int				cellX;
+	int				cellY;
+	int				tx;
+	int				ty;
+	t_img			floorTexture;
+	t_img			ceilingTexture;
 }		t_game;
 
 int		ft_parsing(t_game *game, char *map);
