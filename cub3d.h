@@ -30,8 +30,8 @@ typedef struct s_param
 	char	*SO;
 	char	*WE;
 	char	*EA;
-	int	F[3];
-	int	C[3];
+	int		F[3];
+	int		C[3];
 	char	*S;
 	int		row;
 	char	*save;
