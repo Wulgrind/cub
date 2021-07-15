@@ -12,7 +12,7 @@ MLX = -lmlx -lm -framework OpenGL -framework AppKit
 #SOURCES
 
 FILES	=	ft_checksprite.c		\
-			ft_mainloop2.c		\
+			ft_mainLoop2.c		\
 			ft_parseMap.c		\
 			main.c		\
 			ft_chkOrder.c		\
