@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:18 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:17:15 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/07/15 16:19:38 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_parsing2(t_game *game)
 		write(1, "Error\nInvalid map", 18);
 		return (0);
 	}
-	if (!ft_checkpos(game))
+	if (!ft_checkpos(game) || !ft_tester(game))
 	{
 		write(1, "Error\nInvalid map", 18);
 		return (0);

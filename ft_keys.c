@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:10:25 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:10:26 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/07/15 16:16:25 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	ft_freeparams3(t_game *game)
 	}
 	if (game->sprite)
 		free (game->sprite);
+	if (game->fd)
+		close (game->fd);
 	exit (0);
 }
 

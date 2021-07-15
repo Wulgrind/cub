@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:11:26 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:11:28 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/07/15 16:17:06 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ typedef struct s_cam
 
 typedef struct s_game
 {
+	int				fd;
 	int				wrong2;
 	void			*mlx;
 	void			*win;
@@ -209,4 +210,5 @@ void	ft_mainloop2(t_game *game);
 void	ft_chkOrder(t_game *game);
 void	ft_move4(t_game *game);
 int		ft_checkMap4(t_game *game, char *line);
+int		ft_tester(t_game *game);
 #endif
