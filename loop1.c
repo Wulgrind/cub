@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:12:14 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:12:16 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/07/15 17:33:59 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	ft_loop5(t_game *game)
 	img_init(game);
 	if (game->cam.side == 0)
 	{
-		game->wallX = game->cam.posY;
-		game->wallX += game->cam.perpWallDist * game->cam.rayDirY;
+		game->wallX = game->cam.posY
+		   			+ game->cam.perpWallDist * game->cam.rayDirY;
 	}
 	else
 	{
-		game->wallX = game->cam.posX;
-		game->wallX += game->cam.perpWallDist * game->cam.rayDirX;
+		game->wallX = game->cam.posX
+					+game->cam.perpWallDist * game->cam.rayDirX;
 	}
 	game->wallX -= floor((game->wallX));
 	game->texX = (int)(game->wallX * (double)(game->img.img_width));
@@ -40,15 +40,13 @@ int	ft_loop4(t_game *game)
 {
 	if (game->cam.side == 0)
 	{
-		game->cam.perpWallDist = (game->cam.mapX - game->cam.posX);
-		game->cam.perpWallDist += ((1 - game->cam.stepX) / 2);
-		game->cam.perpWallDist /= game->cam.rayDirX;
+		game->cam.perpWallDist = (game->cam.mapX - game->cam.posX
+					+ (1 - game->cam.stepX)  / 2) / game->cam.rayDirX;
 	}
 	else
 	{
-		game->cam.perpWallDist = (game->cam.mapY - game->cam.posY);
-		game->cam.perpWallDist += ((1 - game->cam.stepY) / 2);
-		game->cam.perpWallDist /= game->cam.rayDirY;
+		game->cam.perpWallDist = (game->cam.mapY - game->cam.posY
+					+ (1 - game->cam.stepY) / 2) / game->cam.rayDirY;
 	}
 	game->lineHeight = (int)(game->param.screenHeight / game->cam.perpWallDist);
 	game->drawStart = -game->lineHeight / 2 + game->param.screenHeight / 2;
@@ -89,26 +87,26 @@ void	ft_loop2(t_game *game)
 	if (game->cam.rayDirX < 0)
 	{
 		game->cam.stepX = -1;
-		game->cam.sideDistX = (game->cam.posX - game->cam.mapX);
-		game->cam.sideDistX *= game->cam.deltaDistX;
+		game->cam.sideDistX = (game->cam.posX - game->cam.mapX)
+				* game->cam.deltaDistX;
 	}
 	else
 	{
 		game->cam.stepX = 1;
-		game->cam.sideDistX = (game->cam.mapX + 1.0 - game->cam.posX);
-		game->cam.sideDistX *= game->cam.deltaDistX;
+		game->cam.sideDistX = (game->cam.mapX + 1.0 - game->cam.posX)
+				* game->cam.deltaDistX;
 	}
 	if (game->cam.rayDirY < 0)
 	{
 		game->cam.stepY = -1;
-		game->cam.sideDistY = (game->cam.posY - game->cam.mapY);
-		game->cam.sideDistY *= game->cam.deltaDistY;
+		game->cam.sideDistY = (game->cam.posY - game->cam.mapY)
+				* game->cam.deltaDistY;
 	}
 	else
 	{
 		game->cam.stepY = 1;
-		game->cam.sideDistY = (game->cam.mapY + 1.0 - game->cam.posY);
-		game->cam.sideDistY *= game->cam.deltaDistY;
+		game->cam.sideDistY = (game->cam.mapY + 1.0 - game->cam.posY)
+				* game->cam.deltaDistY;
 	}
 	ft_loop3(game);
 }
@@ -117,24 +115,22 @@ int	ft_mainLoop(t_game *game)
 {
 	ft_ceiling1(game);
 	game->x = 0;
-	while (game->x < game->param.screenWidth)
+	while (game->x++ < game->param.screenWidth)
 	{
 		game->cam.cameraX = 2 * game->x / (double)game->param.screenWidth - 1;
-		game->cam.rayDirX = game->cam.dirX;
-		game->cam.rayDirX += game->cam.planeX * game->cam.cameraX;
-		game->cam.rayDirY = game->cam.dirY;
-		game->cam.rayDirY += game->cam.planeY * game->cam.cameraX;
+		game->cam.rayDirX = game->cam.dirX
+				+ game->cam.planeX * game->cam.cameraX;
+		game->cam.rayDirY = game->cam.dirY
+				+ game->cam.planeY * game->cam.cameraX;
 		game->cam.mapX = (int)game->cam.posX;
 		game->cam.mapY = (int)game->cam.posY;
-		game->cam.deltaDistX = (game->cam.rayDirY * game->cam.rayDirY);
-		game->cam.deltaDistX /= (game->cam.rayDirX * game->cam.rayDirX);
-		game->cam.deltaDistX = sqrt(1 + game->cam.deltaDistX);
-		game->cam.deltaDistY = (game->cam.rayDirX * game->cam.rayDirX);
-		game->cam.deltaDistY /= (game->cam.rayDirY * game->cam.rayDirY);
-		game->cam.deltaDistY = sqrt(1 + game->cam.deltaDistY);
+		game->cam.deltaDistX = sqrt(1 + (game->cam.rayDirY * game->cam.rayDirY)
+						/ (game->cam.rayDirX * game->cam.rayDirX));
+		game->cam.deltaDistY = sqrt(1 + (game->cam.rayDirX
+						* game->cam.rayDirX)
+					/ (game->cam.rayDirY * game->cam.rayDirY));
 		game->cam.hit = 0;
 		ft_loop2(game);
-		game->x++;
 	}
 	ft_mainloop2(game);
 	return (1);
