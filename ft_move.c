@@ -74,7 +74,7 @@ int	ft_move1(t_game *game)
 				* game->move.moveSpeed)][(int)(game->cam.posY)] == 0)
 			game->cam.posX -= game->cam.dirX * game->move.moveSpeed;
 		if (game->map[(int)(game->cam.posX)][(int)(game->cam.posY
-				- game->cam.dirY * game->move.moveSpeed)] ==0)
+				- game->cam.dirY * game->move.moveSpeed)] == 0)
 			game->cam.posY -= game->cam.dirY * game->move.moveSpeed;
 	}
 	ft_move2(game);

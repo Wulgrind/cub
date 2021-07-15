@@ -44,7 +44,7 @@ void	ft_checkdir(int num, t_game *game)
 	}
 }
 
-int	ft_checkst (t_game *game)
+int	ft_checkst(t_game *game)
 {
 	int	row;
 	int	col;

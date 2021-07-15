@@ -17,7 +17,7 @@ int	ft_ceiling2(t_game *game)
 		game->floorY += game->floorStepY;
 		game->color = 65536 * game->param.C[0] + 256
 			* game->param.C[1] + game->param.C[2];
-		game->display.data[game->y2 *game->param.screenWidth + game->x2]
+		game->display.data[game->y2 * game->param.screenWidth + game->x2]
 			 = game->color;
 		game->color = 65536 * game->param.F[0] + 256
 			* game->param.F[1] + game->param.F[2];
