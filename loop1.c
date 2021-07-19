@@ -27,11 +27,11 @@ int	ft_loop5(t_game *game)
 					+game->cam.perpWallDist * game->cam.rayDirX;
 	}
 	game->wallX -= floor((game->wallX));
-	game->texX = (int)(game->wallX * (double)(game->img.img_width));
+	game->texX = (int)(game->wallX * (double)(64));
 	if (game->cam.side == 0 && game->cam.rayDirX > 0)
-		game->texX = game->img.img_width - game->texX - 1;
+		game->texX = 64 - game->texX - 1;
 	if (game->cam.side == 1 && game->cam.rayDirY < 0)
-		game->texX = game->img.img_width - game->texX - 1;
+		game->texX = 64 - game->texX - 1;
 	ft_loop6(game);
 	return (1);
 }
