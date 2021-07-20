@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:12:14 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 17:33:59 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/07/20 12:24:47 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int	ft_mainLoop(t_game *game)
 {
 	ft_ceiling1(game);
 	game->x = 0;
-	while (game->x++ < game->param.screenWidth)
+	while (game->x < game->param.screenWidth)
 	{
 		game->cam.cameraX = 2 * game->x / (double)game->param.screenWidth - 1;
 		game->cam.rayDirX = game->cam.dirX
@@ -131,6 +131,7 @@ int	ft_mainLoop(t_game *game)
 					/ (game->cam.rayDirY * game->cam.rayDirY));
 		game->cam.hit = 0;
 		ft_loop2(game);
+		game->x++;
 	}
 	ft_mainloop2(game);
 	return (1);
