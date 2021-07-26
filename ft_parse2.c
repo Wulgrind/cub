@@ -42,25 +42,25 @@ int	ft_parseS(t_game *game, char *line)
 
 int	ft_parseF(t_game *game, char *line)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	while (line[i] == ' ')
-		i++;
-	while (line[i])
+	game->i = 0;
+	game->j = 0;
+	while (line[game->i] == ' ')
+		game->i++;
+	game->i++;
+	while (line[game->i] == ' ')
+		game->i++;
+	while (line[game->i])
 	{
-		if (ft_isdigit(line[i]))
+		if (ft_isdigit(line[game->i]))
 		{
-			game->param.F[j] *= 10;
-			game->param.F[j] += (line[i] - '0');
+			game->param.F[game->j] *= 10;
+			game->param.F[game->j] += (line[game->i] - '0');
 		}
-		if (line[i] == ',')
-			j++;
-		if (!ft_isdigit(line[i]) && line[i] != ',')
+		if (line[game->i] == ',')
+			game->j++;
+		if (!ft_isdigit(line[game->i]) && line[game->i] != ',')
 			game->wrong3++;
-		i++;
+		game->i++;
 	}
 	ft_checkMap4(game, line);
 	return (1);
@@ -68,25 +68,25 @@ int	ft_parseF(t_game *game, char *line)
 
 int	ft_parseC(t_game *game, char *line)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (!ft_isdigit(line[i]))
-		i++;
-	while (line[i])
+	game->i = 0;
+	game->j = 0;
+	while (line[game->i] == ' ')
+		game->i++;
+	game->i++;
+	while (line[game->i] == ' ')
+		game->i++;
+	while (line[game->i])
 	{
-		if (ft_isdigit(line[i]))
+		if (ft_isdigit(line[game->i]))
 		{
-			game->param.C[j] *= 10;
-			game->param.C[j] += (line[i] - '0');
+			game->param.C[game->j] *= 10;
+			game->param.C[game->j] += (line[game->i] - '0');
 		}
-		if (line[i] == ',')
-			j++;
-		if (!ft_isdigit(line[i]) && line[i] != ',')
+		if (line[game->i] == ',')
+			game->j++;
+		if (!ft_isdigit(line[game->i]) && line[game->i] != ',')
 			game->wrong3++;
-		i++;
+		game->i++;
 	}
 	ft_checkMap4(game, line);
 	return (1);

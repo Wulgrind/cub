@@ -162,6 +162,8 @@ typedef struct s_game
 	t_img			ceilingTexture;
 	int				countp;
 	int				wrong3;
+	int				i;
+	int				j;
 }		t_game;
 
 int		ft_parsing(t_game *game, char *map);

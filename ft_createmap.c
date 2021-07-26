@@ -32,7 +32,7 @@ static int	ft_n(t_game *game)
 			i++;
 			j++;
 		}
-		game->map[row] = malloc(sizeof(int) * (j));
+		game->map[row] = malloc(sizeof(int) * (j + 1));
 		if (game->map[row] == NULL)
 			return (0);
 		row++;
@@ -59,7 +59,7 @@ int	ft_assign(t_game *game, int *i, int *j, int *a)
 		else if (game->param.save[*i] == '\n')
 		{
 			game->map[*j][*a] = 10;
-			*a = 0;
+			(*a) = 0;
 			(*j)++;
 		}
 		else

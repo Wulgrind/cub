@@ -14,15 +14,17 @@
 
 int	ft_checkMap4(t_game *game, char *line)
 {
-	if (line[0] == 'F' || line[0] == 'C')
+	int	i;
+
+	i = 0;
+	while (line[i])
 	{
-		if (line[1] != ' ')
-			game->wrong2++;
-	}
-	else
-	{
-		if (line[2] != ' ')
-			game->wrong2++;
+		if (line[i] == 'F' || line[i] == 'C')
+		{
+			if (line[i + 1] != ' ')
+				game->wrong2++;
+		}
+		i++;
 	}
 	game->countp++;
 	return (1);
@@ -82,21 +84,21 @@ int	ft_checkMap2(t_game *game)
 
 int	ft_checkMapbis(t_game *game, int row, int col)
 {
-	if (game->map[row][col + 1] == 9)
+	if (game->map[row][col + 1] == 9 || game->map[row][col + 1] == 10)
 		return (0);
 	if (col != 0)
 	{
-		if (game->map[row][col - 1] == 9)
+		if (game->map[row][col - 1] == 9 || game->map[row][col - 1] == 10)
 			return (0);
 	}
 	if (row != 0)
 	{
-		if (game->map[row - 1][col] == 9)
+		if (game->map[row - 1][col] == 9 || game->map[row - 1][col] == 10)
 			return (0);
 	}
-	if (row != game->param.row - 1)
+	if (row != game->param.row)
 	{
-		if (game->map[row + 1][col] == 9)
+		if (game->map[row + 1][col] == 9 || game->map[row + 1][col] == 10)
 			return (0);
 	}
 	return (1);
