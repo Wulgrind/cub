@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:15:54 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:16:49 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/07/29 16:43:12 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_checkdir(int num, t_game *game)
 		game->cam.posX -= -1 * 0.50;
 		game->cam.posY -= -1 * 0.50;
 	}
+	ft_checkdir2(num, game);
 }
 
 int	ft_checkst(t_game *game)
