@@ -3,7 +3,7 @@ SO textures/eagle.xpm
 WE textures/colorstone.xpm
 EA textures/wood.xpm
 F 182,19,0
-C 255,255,0
+C 255,140,0
         1111111111111111111111111
         1000000000110000000000001
         1011000001110000000000001
