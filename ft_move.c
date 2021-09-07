@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:04 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:17:47 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:23:07 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	ft_move3(t_game *game)
 	int	y;
 
 	y = 0;
-	while (y < game->param.screenHeight)
+	while (y < game->param.screenheight)
 	{
 		x = 0;
-		while (x < game->param.screenWidth)
+		while (x < game->param.screenwidth)
 		{
-			game->display.data[y * game->param.screenWidth + x] = 0;
+			game->display.data[y * game->param.screenwidth + x] = 0;
 			x++;
 		}
 		y++;
@@ -34,32 +34,32 @@ int	ft_move3(t_game *game)
 
 void	ft_movebis(t_game *game)
 {
-	game->move.oldDirX = game->cam.dirX;
-	game->cam.dirX = game->cam.dirX * cos(game->move.rotSpeed)
-		- game->cam.dirY * sin(game->move.rotSpeed);
-	game->cam.dirY = game->move.oldDirX * sin(game->move.rotSpeed)
-		+ game->cam.dirY * cos(game->move.rotSpeed);
-	game->move.oldPlaneX = game->cam.planeX;
-	game->cam.planeX = game->cam.planeX * cos(game->move.rotSpeed)
-		- game->cam.planeY * sin(game->move.rotSpeed);
-	game->cam.planeY = game->move.oldPlaneX * sin(game->move.rotSpeed)
-		+ game->cam.planeY * cos(game->move.rotSpeed);
+	game->move.olddirx = game->cam.dirx;
+	game->cam.dirx = game->cam.dirx * cos(game->move.rotspeed)
+		- game->cam.diry * sin(game->move.rotspeed);
+	game->cam.diry = game->move.olddirx * sin(game->move.rotspeed)
+		+ game->cam.diry * cos(game->move.rotspeed);
+	game->move.oldplanex = game->cam.planex;
+	game->cam.planex = game->cam.planex * cos(game->move.rotspeed)
+		- game->cam.planey * sin(game->move.rotspeed);
+	game->cam.planey = game->move.oldplanex * sin(game->move.rotspeed)
+		+ game->cam.planey * cos(game->move.rotspeed);
 }
 
 int	ft_move2(t_game *game)
 {
 	if (game->move.right == 1)
 	{
-		game->move.oldDirX = game->cam.dirX;
-		game->cam.dirX = game->cam.dirX * cos(-game->move.rotSpeed)
-			- game->cam.dirY * sin(-game->move.rotSpeed);
-		game->cam.dirY = game->move.oldDirX * sin(-game->move.rotSpeed)
-			+ game->cam.dirY * cos(-game->move.rotSpeed);
-		game->move.oldPlaneX = game->cam.planeX;
-		game->cam.planeX = game->cam.planeX * cos(-game->move.rotSpeed)
-			- game->cam.planeY * sin(-game->move.rotSpeed);
-		game->cam.planeY = game->move.oldPlaneX * sin(-game->move.rotSpeed)
-			+ game->cam.planeY * cos(-game->move.rotSpeed);
+		game->move.olddirx = game->cam.dirx;
+		game->cam.dirx = game->cam.dirx * cos(-game->move.rotspeed)
+			- game->cam.diry * sin(-game->move.rotspeed);
+		game->cam.diry = game->move.olddirx * sin(-game->move.rotspeed)
+			+ game->cam.diry * cos(-game->move.rotspeed);
+		game->move.oldplanex = game->cam.planex;
+		game->cam.planex = game->cam.planex * cos(-game->move.rotspeed)
+			- game->cam.planey * sin(-game->move.rotspeed);
+		game->cam.planey = game->move.oldplanex * sin(-game->move.rotspeed)
+			+ game->cam.planey * cos(-game->move.rotspeed);
 	}
 	if (game->move.left == 1)
 	{
@@ -73,21 +73,21 @@ int	ft_move1(t_game *game)
 {
 	if (game->move.forward == 1)
 	{
-		if (game->map[(int)(game->cam.posX + game->cam.dirX
-				* game->move.moveSpeed)][(int)(game->cam.posY)] == 0)
-			game->cam.posX += game->cam.dirX * game->move.moveSpeed;
-		if (game->map[(int)(game->cam.posX)][(int)(game->cam.posY
-				+ game->cam.dirY * game->move.moveSpeed)] == 0)
-			game->cam.posY += game->cam.dirY * game->move.moveSpeed;
+		if (game->map[(int)(game->cam.posx + game->cam.dirx
+				* game->move.movespeed)][(int)(game->cam.posy)] == 0)
+			game->cam.posx += game->cam.dirx * game->move.movespeed;
+		if (game->map[(int)(game->cam.posx)][(int)(game->cam.posy
+				+ game->cam.diry * game->move.movespeed)] == 0)
+			game->cam.posy += game->cam.diry * game->move.movespeed;
 	}
 	if (game->move.backward == 1)
 	{
-		if (game->map[(int)(game->cam.posX - game->cam.dirX
-				* game->move.moveSpeed)][(int)(game->cam.posY)] == 0)
-			game->cam.posX -= game->cam.dirX * game->move.moveSpeed;
-		if (game->map[(int)(game->cam.posX)][(int)(game->cam.posY
-				- game->cam.dirY * game->move.moveSpeed)] == 0)
-			game->cam.posY -= game->cam.dirY * game->move.moveSpeed;
+		if (game->map[(int)(game->cam.posx - game->cam.dirx
+				* game->move.movespeed)][(int)(game->cam.posx)] == 0)
+			game->cam.posx -= game->cam.dirx * game->move.movespeed;
+		if (game->map[(int)(game->cam.posx)][(int)(game->cam.posy
+				- game->cam.diry * game->move.movespeed)] == 0)
+			game->cam.posy -= game->cam.diry * game->move.movespeed;
 	}
 	ft_move2(game);
 	return (1);

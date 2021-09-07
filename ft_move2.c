@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:58 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:18:18 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:31:23 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	ft_move4(t_game *game)
 {
-	if (game->move.strafeRight == 1)
+	if (game->move.straferight == 1)
 	{
-		if (game->map[(int)(game->cam.posX + game->cam.planeX
-				* game->move.moveSpeed)][(int)(game->cam.posY)] == 0)
-			game->cam.posX += game->cam.planeX * game->move.moveSpeed;
-		if (game->map[(int)(game->cam.posX)][(int)(game->cam.posY
-				+ game->cam.planeY * game->move.moveSpeed)] == 0)
-			game->cam.posY += game->cam.planeY * game->move.moveSpeed;
+		if (game->map[(int)(game->cam.posx + game->cam.planex
+				* game->move.movespeed)][(int)(game->cam.posy)] == 0)
+			game->cam.posx += game->cam.planex * game->move.movespeed;
+		if (game->map[(int)(game->cam.posx)][(int)(game->cam.posy
+				+ game->cam.planey * game->move.movespeed)] == 0)
+			game->cam.posy += game->cam.planey * game->move.movespeed;
 	}
-	if (game->move.strafeLeft == 1)
+	if (game->move.strafeleft == 1)
 	{
-		if (game->map[(int)(game->cam.posX - game->cam.planeX
-				* game->move.moveSpeed)][(int)(game->cam.posY)] == 0)
-			game->cam.posX -= game->cam.planeX * game->move.moveSpeed;
-		if (game->map[(int)(game->cam.posX)][(int)(game->cam.posY
-				- game->cam.planeY * game->move.moveSpeed)] == 0)
-			game->cam.posY -= game->cam.planeY * game->move.moveSpeed;
+		if (game->map[(int)(game->cam.posx - game->cam.planex
+				* game->move.movespeed)][(int)(game->cam.posy)] == 0)
+			game->cam.posx -= game->cam.planex * game->move.movespeed;
+		if (game->map[(int)(game->cam.posx)][(int)(game->cam.posx
+				- game->cam.planey * game->move.movespeed)] == 0)
+			game->cam.posy -= game->cam.planey * game->move.movespeed;
 	}
 }

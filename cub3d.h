@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:11:26 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 17:15:54 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:43:53 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,29 @@
 
 typedef struct s_param
 {
-	int		screenHeight;
-	int		screenWidth;
-	char	*NO;
-	char	*SO;
-	char	*WE;
-	char	*EA;
-	int		F[3];
-	int		C[3];
-	char	*S;
+	int		screenheight;
+	int		screenwidth;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		f[3];
+	int		c[3];
+	char	*s;
 	int		row;
 	char	*save;
 	int		wrong;
 	int		sprite;
-	double	*ZBuffer;
-	int		*spriteOrder;
-	double	*spriteDistance;
-	double	spriteX;
-	double	spriteY;
-	double	invDet;
-	double	transformX;
-	double	transformY;
-	int		spriteScreenX;
-	int		spriteHeight;
+	double	*zbuffer;
+	int		*spriteorder;
+	double	*spritedistance;
+	double	spritex;
+	double	spritey;
+	double	invdet;
+	double	transformx;
+	double	transformy;
+	int		spritescreenx;
+	int		spriteheight;
 	int		row2;
 	int		col2;
 	int		i;
@@ -70,12 +70,12 @@ typedef struct s_move
 	int		backward;
 	int		right;
 	int		left;
-	int		strafeRight;
-	int		strafeLeft;
-	double	moveSpeed;
-	double	rotSpeed;
-	double	oldDirX;
-	double	oldPlaneX;
+	int		straferight;
+	int		strafeleft;
+	double	movespeed;
+	double	rotspeed;
+	double	olddirx;
+	double	oldplanex;
 }		t_move;
 
 typedef struct s_img
@@ -91,26 +91,26 @@ typedef struct s_img
 
 typedef struct s_cam
 {
-	double	posX;
-	double	posY;
-	double	dirX;
-	double	dirY;
-	double	planeX;
-	double	planeY;
+	double	posx;
+	double	posy;
+	double	dirx;
+	double	diry;
+	double	planex;
+	double	planey;
 	double	time;
 	double	oldtime;
-	double	cameraX;
-	double	rayDirX;
-	double	rayDirY;
-	int		mapX;
-	int		mapY;
-	double	sideDistX;
-	double	sideDistY;
-	double	deltaDistX;
-	double	deltaDistY;
-	double	perpWallDist;
-	int		stepX;
-	int		stepY;
+	double	camerax;
+	double	raydirx;
+	double	raydiry;
+	int		mapx;
+	int		mapy;
+	double	sidedistx;
+	double	sidedisty;
+	double	deltadistx;
+	double	deltadisty;
+	double	perpwalldist;
+	int		stepx;
+	int		stepy;
 	int		hit;
 	int		side;
 }		t_cam;
@@ -122,16 +122,16 @@ typedef struct s_game
 	void			*mlx;
 	void			*win;
 	t_img			img;
-	int				lineHeight;
-	int				drawStart;
-	int				drawEnd;
-	int				texNum;
-	double			wallX;
-	int				texX;
+	int				lineheight;
+	int				drawstart;
+	int				drawend;
+	int				texnum;
+	double			wallx;
+	int				texx;
 	int				**map;
 	double			step;
-	double			texPos;
-	int				texY;
+	double			texpos;
+	int				texy;
 	unsigned int	color;
 	int				x;
 	int				y;
@@ -140,26 +140,26 @@ typedef struct s_game
 	t_move			move;
 	t_param			param;
 	double			**sprite;
-	int				isDigit;
+	int				isdigit;
 	int				y2;
 	int				x2;
-	float			rayDirX0;
-	float			rayDirY0;
-	float			rayDirX1;
-	float			rayDirY1;
+	float			raydirx0;
+	float			raydiry0;
+	float			raydirx1;
+	float			raydiry1;
 	int				p;
-	float			posZ;
-	float			rowDistance;
-	float			floorStepX;
-	float			floorStepY;
-	float			floorX;
-	float			floorY;
-	int				cellX;
-	int				cellY;
+	float			posz;
+	float			rowdistance;
+	float			floorstepx;
+	float			floorstepy;
+	float			floorx;
+	float			floory;
+	int				cellx;
+	int				celly;
 	int				tx;
 	int				ty;
-	t_img			floorTexture;
-	t_img			ceilingTexture;
+	t_img			floortexture;
+	t_img			ceilingtexture;
 	int				countp;
 	int				wrong3;
 	int				i;
@@ -167,7 +167,7 @@ typedef struct s_game
 }		t_game;
 
 int		ft_parsing(t_game *game, char *map);
-int		ft_mainLoop(t_game *game);
+int		ft_mainloop(t_game *game);
 void	ft_loop2(t_game *game);
 int		ft_loop3(t_game *game);
 int		ft_loop4(t_game *game);
@@ -183,24 +183,24 @@ int		img_init(t_game *game);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		ft_ceiling1(t_game *game);
 int		ft_parsing(t_game *game, char *map);
-int		ft_parseR(t_game *game, char *line);
+int		ft_parser(t_game *game, char *line);
 int		ft_isdigit(char i);
-void	ft_initParam(t_game *game);
-int		ft_parseNO(t_game *game, char *line);
-int		ft_parseSO(t_game *game, char *line);
-int		ft_parseWE(t_game *game, char *line);
-int		ft_parseEA(t_game *game, char *line);
-int		ft_parseS(t_game *game, char *line);
-int		ft_parseF(t_game *game, char *line);
-int		ft_parseC(t_game *game, char *line);
-int		ft_parseMap(t_game *game, char *line);
+void	ft_initparam(t_game *game);
+int		ft_parseno(t_game *game, char *line);
+int		ft_parseso(t_game *game, char *line);
+int		ft_parsewe(t_game *game, char *line);
+int		ft_parseea(t_game *game, char *line);
+int		ft_parses(t_game *game, char *line);
+int		ft_parsef(t_game *game, char *line);
+int		ft_parsec(t_game *game, char *line);
+int		ft_parsemap(t_game *game, char *line);
 int		ft_isalpha(int c);
 int		ft_strlen2(char *str);
 int		ft_createmap(t_game *game);
-int		ft_checkParams(t_game *game);
-int		ft_checkMap(t_game *game);
-int		ft_checkMap2(t_game *game);
-int		ft_checkMap3(t_game *game);
+int		ft_checkparams(t_game *game);
+int		ft_checkmap(t_game *game);
+int		ft_checkmap2(t_game *game);
+int		ft_checkmap3(t_game *game);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);
@@ -209,8 +209,8 @@ int		ft_freeparams(t_game *game);
 int		ft_checksprite(t_game *game);
 int		ft_spriteparam(t_game *game);
 void	ft_mainloop2(t_game *game);
-void	ft_chkOrder(t_game *game);
+void	ft_chkorder(t_game *game);
 void	ft_move4(t_game *game);
-int		ft_checkMap4(t_game *game, char *line);
+int		ft_checkmap4(t_game *game, char *line);
 int		ft_tester(t_game *game);
 #endif

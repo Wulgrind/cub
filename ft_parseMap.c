@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:13:03 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:13:04 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 10:52:01 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ void	ft_translate(t_game *game)
 	}
 }
 
-int	ft_parseMap(t_game *game, char *line)
+int	ft_parsemap(t_game *game, char *line)
 {
-	ft_chkOrder(game);
+	ft_chkorder(game);
 	game->param.save = ft_cpys(game, line);
 	game->param.row = ft_countline(game);
 	ft_translate(game);

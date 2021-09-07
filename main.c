@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:27 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:14:28 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:43:13 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 
-	ft_initParam(&game);
+	ft_initparam(&game);
 	if (ac < 2)
 	{
 		write (1, "Error\nNo maps given", 20);
@@ -29,7 +29,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	window_init(&game);
-	mlx_loop_hook(game.mlx, &ft_mainLoop, &game);
+	mlx_loop_hook(game.mlx, &ft_mainloop, &game);
 	mlx_hook(game.win, X_EVENT_KEY_PRESS, 0, &key_press, &game);
 	mlx_hook(game.win, X_EVENT_KEY_RELEASE, 0, &key_release, &game);
 	mlx_hook(game.win, X_EVENT_KEY_EXIT, 0, &ft_freeparams, &game);

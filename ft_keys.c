@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:10:25 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 16:16:25 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:37:52 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,22 @@ void	ft_freeparams2(t_game *game)
 
 int	ft_freeparams(t_game *game)
 {
-	if (game->param.NO)
-		free (game->param.NO);
-	if (game->param.SO)
-		free (game->param.SO);
-	if (game->param.WE)
-		free (game->param.WE);
-	if (game->param.EA)
-		free (game->param.EA);
-	if (game->param.S)
-		free (game->param.S);
-	if (game->param.ZBuffer)
-		free (game->param.ZBuffer);
-	if (game->param.spriteOrder)
-		free (game->param.spriteOrder);
-	if (game->param.spriteDistance)
-		free (game->param.spriteDistance);
+	if (game->param.no)
+		free (game->param.no);
+	if (game->param.so)
+		free (game->param.so);
+	if (game->param.we)
+		free (game->param.we);
+	if (game->param.ea)
+		free (game->param.ea);
+	if (game->param.s)
+		free (game->param.s);
+	if (game->param.zbuffer)
+		free (game->param.zbuffer);
+	if (game->param.spriteorder)
+		free (game->param.spriteorder);
+	if (game->param.spritedistance)
+		free (game->param.spritedistance);
 	ft_freeparams2(game);
 	return (1);
 }
@@ -85,9 +85,9 @@ int	key_press(int keycode, t_game *game)
 	else if (keycode == KEY_RIGHT)
 		game->move.right = 1;
 	else if (keycode == KEY_D)
-		game->move.strafeRight = 1;
+		game->move.straferight = 1;
 	else if (keycode == KEY_A)
-		game->move.strafeLeft = 1;
+		game->move.strafeleft = 1;
 	else if (keycode == KEY_ESC)
 	{
 		ft_freeparams(game);
@@ -107,8 +107,8 @@ int	key_release(int keycode, t_game *game)
 	else if (keycode == KEY_RIGHT)
 		game->move.right = 0;
 	else if (keycode == KEY_D)
-		game->move.strafeRight = 0;
+		game->move.straferight = 0;
 	else if (keycode == KEY_A)
-		game->move.strafeLeft = 0;
+		game->move.strafeleft = 0;
 	return (0);
 }

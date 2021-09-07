@@ -6,13 +6,13 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:13:40 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 16:52:39 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:32:02 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_checkMap4(t_game *game, char *line)
+int	ft_checkmap4(t_game *game, char *line)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ int	ft_checkMap4(t_game *game, char *line)
 	return (1);
 }
 
-int	ft_checkMap3(t_game *game)
+int	ft_checkmap3(t_game *game)
 {
 	int	row;
 	int	col;
@@ -56,7 +56,7 @@ int	ft_checkMap3(t_game *game)
 	return (1);
 }
 
-int	ft_checkMap2(t_game *game)
+int	ft_checkmap2(t_game *game)
 {
 	int	row;
 	int	col;
@@ -82,7 +82,7 @@ int	ft_checkMap2(t_game *game)
 	return (1);
 }
 
-int	ft_checkMapbis(t_game *game, int row, int col)
+int	ft_checkmapbis(t_game *game, int row, int col)
 {
 	if (game->map[row][col + 1] == 9 || game->map[row][col + 1] == 10)
 		return (0);
@@ -104,7 +104,7 @@ int	ft_checkMapbis(t_game *game, int row, int col)
 	return (1);
 }
 
-int	ft_checkMap(t_game *game)
+int	ft_checkmap(t_game *game)
 {
 	int	row;
 	int	col;
@@ -117,7 +117,7 @@ int	ft_checkMap(t_game *game)
 		{	
 			if (game->map[row][col] == 0)
 			{
-				if (!(ft_checkMapbis(game, row, col)))
+				if (!(ft_checkmapbis(game, row, col)))
 					return (0);
 			}
 			col++;

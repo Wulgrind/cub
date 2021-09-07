@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:12:22 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 14:19:14 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:27:46 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 int	ft_ceiling2(t_game *game)
 {
 	game->x2 = 0;
-	while (game->x2 < game->param.screenWidth)
+	while (game->x2 < game->param.screenwidth)
 	{
-		game->cellX = (int)game->floorX;
-		game->cellY = (int)game->floorY;
-		game->tx = (int)(game->floorTexture.img_width
-				* (game->floorX - game->cellX))
-			& (game->floorTexture.img_width - 1);
-		game->ty = (int)(game->floorTexture.img_height
-				* (game->floorY - game->cellY))
-			& (game->floorTexture.img_height - 1);
-		game->floorX += game->floorStepX;
-		game->floorY += game->floorStepY;
-		game->color = 65536 * game->param.C[0] + 256
-			* game->param.C[1] + game->param.C[2];
-		game->display.data[game->y2 * game->param.screenWidth + game->x2]
+		game->cellx = (int)game->floorx;
+		game->celly = (int)game->floory;
+		game->tx = (int)(game->floortexture.img_width
+				* (game->floorx - game->cellx))
+			& (game->floortexture.img_width - 1);
+		game->ty = (int)(game->floortexture.img_height
+				* (game->floory - game->celly))
+			& (game->floortexture.img_height - 1);
+		game->floorx += game->floorstepx;
+		game->floory += game->floorstepy;
+		game->color = 65536 * game->param.c[0] + 256
+			* game->param.c[1] + game->param.c[2];
+		game->display.data[game->y2 * game->param.screenwidth + game->x2]
 			 = game->color;
-		game->color = 65536 * game->param.F[0] + 256
-			* game->param.F[1] + game->param.F[2];
-		game->display.data[((game->param.screenHeight - game->y2 - 1)
-				* game->param.screenWidth) + game->x2] = game->color;
+		game->color = 65536 * game->param.f[0] + 256
+			* game->param.f[1] + game->param.f[2];
+		game->display.data[((game->param.screenheight - game->y2 - 1)
+				* game->param.screenwidth) + game->x2] = game->color;
 		game->x2++;
 	}
 	return (1);
@@ -43,23 +43,23 @@ int	ft_ceiling2(t_game *game)
 int	ft_ceiling1(t_game *game)
 {
 	game->y2 = 0;
-	while (game->y2 < game->param.screenHeight)
+	while (game->y2 < game->param.screenheight)
 	{	
-		game->rayDirX0 = game->cam.dirX - game->cam.planeX;
-		game->rayDirY0 = game->cam.dirY - game->cam.planeY;
-		game->rayDirX1 = game->cam.dirX + game->cam.planeX;
-		game->rayDirY1 = game->cam.dirY + game->cam.planeY;
-		game->p = game->y2 - game->param.screenHeight / 2;
-		game->posZ = 0.5 * game->param.screenHeight;
-		game->rowDistance = game->posZ / game->p;
-		game->floorStepX = game->rowDistance
-			* (game->rayDirX1 - game->rayDirX0) / game->param.screenWidth;
-		game->floorStepY = game->rowDistance
-			* (game->rayDirY1 - game->rayDirY0) / game->param.screenWidth;
-		game->floorX = game->cam.posX
-			+ game->rowDistance * game->rayDirX0;
-		game->floorY = game->cam.posY
-			+ game->rowDistance * game->rayDirY0;
+		game->raydirx0 = game->cam.dirx - game->cam.planex;
+		game->raydiry0 = game->cam.diry - game->cam.planey;
+		game->raydirx1 = game->cam.dirx + game->cam.planex;
+		game->raydiry1 = game->cam.diry + game->cam.planey;
+		game->p = game->y2 - game->param.screenheight / 2;
+		game->posz = 0.5 * game->param.screenheight;
+		game->rowdistance = game->posz / game->p;
+		game->floorstepx = game->rowdistance
+			* (game->raydirx1 - game->raydirx0) / game->param.screenwidth;
+		game->floorstepy = game->rowdistance
+			* (game->raydiry1 - game->raydiry0) / game->param.screenwidth;
+		game->floorx = game->cam.posx
+			+ game->rowdistance * game->raydirx0;
+		game->floory = game->cam.posy
+			+ game->rowdistance * game->raydiry0;
 		ft_ceiling2(game);
 		game->y2++;
 	}

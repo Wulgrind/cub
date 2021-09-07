@@ -6,13 +6,13 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:18 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/15 16:19:38 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:18:59 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_checkEnd(char *map)
+int	ft_checkend(char *map)
 {
 	int	i;
 
@@ -42,23 +42,23 @@ int	ft_parseline(t_game *game, char *line)
 	while (line[i] == ' ')
 		i++;
 	if (line[i] == 'N' && line[i + 1] == 'O')
-		ft_parseNO(game, line);
+		ft_parseno(game, line);
 	if (line[i] == 'S' && line[i + 1] == 'O')
-		ft_parseSO(game, line);
+		ft_parseso(game, line);
 	if (line[i] == 'W' && line[i + 1] == 'E')
-		ft_parseWE(game, line);
+		ft_parsewe(game, line);
 	if (line[i] == 'E' && line[i + 1] == 'A')
-		ft_parseEA(game, line);
+		ft_parseea(game, line);
 	if (line[i] == 'F')
-		ft_parseF(game, line);
+		ft_parsef(game, line);
 	if (line[i] == 'C')
-		ft_parseC(game, line);
+		ft_parsec(game, line);
 	if (ft_isdigit(line[i]))
 	{
-		ft_parseMap(game, line);
-		game->isDigit = 1;
+		ft_parsemap(game, line);
+		game->isdigit = 1;
 	}
-	if (!(ft_isdigit(line[i])) && game->isDigit == 1)
+	if (!(ft_isdigit(line[i])) && game->isdigit == 1)
 		game->param.wrong++;
 	return (1);
 }
@@ -68,7 +68,7 @@ int	ft_parsing2(t_game *game)
 	int	i;
 
 	i = 0;
-	i = ft_checkParams(game);
+	i = ft_checkparams(game);
 	if (i == 4 || i == 3 || game->countp > 6)
 	{
 		if (i == 4)
@@ -79,7 +79,7 @@ int	ft_parsing2(t_game *game)
 			write (1, "Error\nMore parameters than expected", 35);
 		return (0);
 	}
-	if (!ft_checkMap(game) || !ft_checkMap2(game) || !ft_checkMap3(game))
+	if (!ft_checkmap(game) || !ft_checkmap2(game) || !ft_checkmap3(game))
 	{
 		write(1, "Error\nInvalid map", 18);
 		return (0);
@@ -109,7 +109,7 @@ int	ft_parsing(t_game *game, char *map)
 	int		count;
 	char	*line;
 
-	if (!(ft_checkEnd(map)))
+	if (!(ft_checkend(map)))
 		return (0);
 	count = open(map, O_RDONLY);
 	if (count < 0)

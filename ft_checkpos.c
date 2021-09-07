@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:15:54 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/07/29 16:43:12 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 11:36:20 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ void	ft_checkdir2(int num, t_game *game)
 {
 	if (num == 5)
 	{
-		game->cam.dirX = 0;
-		game->cam.dirY = -1;
-		game->cam.planeX = -0.66;
-		game->cam.planeY = 0;
-		game->cam.posY -= -1 * 0.50;
-		game->cam.posX -= -1 * 0.50;
+		game->cam.dirx = 0;
+		game->cam.diry = -1;
+		game->cam.planex = -0.66;
+		game->cam.planey = 0;
+		game->cam.posy -= -1 * 0.50;
+		game->cam.posx -= -1 * 0.50;
 	}
 	if (num == 6)
 	{
-		game->cam.dirX = 0;
-		game->cam.dirY = 1;
-		game->cam.planeX = 0.66;
-		game->cam.planeY = 0;
-		game->cam.posX -= -1 * 0.50;
-		game->cam.posY -= -1 * 0.50;
+		game->cam.dirx = 0;
+		game->cam.diry = 1;
+		game->cam.planex = 0.66;
+		game->cam.planey = 0;
+		game->cam.posx -= -1 * 0.50;
+		game->cam.posy -= -1 * 0.50;
 	}
 }
 
@@ -38,21 +38,21 @@ void	ft_checkdir(int num, t_game *game)
 {
 	if (num == 3)
 	{
-		game->cam.dirX = -1;
-		game->cam.dirY = 0;
-		game->cam.planeX = 0;
-		game->cam.planeY = 0.66;
-		game->cam.posX -= -1 * 0.50;
-		game->cam.posY -= -1 * 0.50;
+		game->cam.dirx = -1;
+		game->cam.diry = 0;
+		game->cam.planex = 0;
+		game->cam.planey = 0.66;
+		game->cam.posx -= -1 * 0.50;
+		game->cam.posy -= -1 * 0.50;
 	}
 	if (num == 4)
 	{
-		game->cam.dirX = 1;
-		game->cam.dirY = 0;
-		game->cam.planeX = 0;
-		game->cam.planeY = -0.66;
-		game->cam.posX -= -1 * 0.50;
-		game->cam.posY -= -1 * 0.50;
+		game->cam.dirx = 1;
+		game->cam.diry = 0;
+		game->cam.planex = 0;
+		game->cam.planey = -0.66;
+		game->cam.posx -= -1 * 0.50;
+		game->cam.posy -= -1 * 0.50;
 	}
 	ft_checkdir2(num, game);
 }
@@ -99,8 +99,8 @@ int	ft_checkpos(t_game *game)
 			if (game->map[row][col] == 3 || game->map[row][col] == 4 ||
 				game->map[row][col] == 5 || game->map[row][col] == 6)
 			{
-				game->cam.posX = row;
-				game->cam.posY = col;
+				game->cam.posx = row;
+				game->cam.posy = col;
 				ft_checkdir(game->map[row][col], game);
 			}	
 			col++;
