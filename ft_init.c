@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:13:57 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:29:48 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 14:03:56 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ void	ft_initparam(t_game *game)
 	game->param.spriteorder = NULL;
 	game->sprite = NULL;
 	game->map = NULL;
-	game->param.screenheight = 480;
-	game->param.screenwidth = 680;
+	game->param.screenheight = 360;
+	game->param.screenwidth = 480;
 	while (i <= 2)
 	{
 		game->param.f[i] = 0;
