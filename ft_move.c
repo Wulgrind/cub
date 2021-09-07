@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:04 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:23:07 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 14:20:05 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	ft_move1(t_game *game)
 	if (game->move.backward == 1)
 	{
 		if (game->map[(int)(game->cam.posx - game->cam.dirx
-				* game->move.movespeed)][(int)(game->cam.posx)] == 0)
+				* game->move.movespeed)][(int)(game->cam.posy)] == 0)
 			game->cam.posx -= game->cam.dirx * game->move.movespeed;
 		if (game->map[(int)(game->cam.posx)][(int)(game->cam.posy
 				- game->cam.diry * game->move.movespeed)] == 0)
