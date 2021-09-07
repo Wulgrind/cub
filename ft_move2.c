@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:58 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:31:23 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/07 14:13:59 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_move4(t_game *game)
 		if (game->map[(int)(game->cam.posx - game->cam.planex
 				* game->move.movespeed)][(int)(game->cam.posy)] == 0)
 			game->cam.posx -= game->cam.planex * game->move.movespeed;
-		if (game->map[(int)(game->cam.posx)][(int)(game->cam.posx
+		if (game->map[(int)(game->cam.posx)][(int)(game->cam.posy
 				- game->cam.planey * game->move.movespeed)] == 0)
 			game->cam.posy -= game->cam.planey * game->move.movespeed;
 	}
