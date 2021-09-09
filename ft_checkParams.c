@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:42 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:33:28 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:35:52 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,6 @@ int	ft_checkparams(t_game *game)
 	if (game->param.no == NULL || game->param.so == NULL)
 		return (i);
 	if (game->param.we == NULL || game->param.ea == NULL)
-		return (i);
-	if (game->param.f[0] == 0 && game->param.f[1] == 0
-		&& game->param.f[2] == 0)
-		return (i);
-	if (game->param.c[0] == 0 && game->param.c[1] == 0
-		&& game->param.c[2] == 0)
 		return (i);
 	if (!ft_checkparams2(game) || game->wrong3 > 0)
 	{

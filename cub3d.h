@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:11:26 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/09 10:37:34 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:53:06 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ typedef struct s_game
 	int				wrong3;
 	int				i;
 	int				j;
+	int				checkfc;
 }		t_game;
 
 int		ft_parsing(t_game *game, char *map);

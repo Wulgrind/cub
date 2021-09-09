@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:12:06 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:38:55 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:52:36 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	ft_parsef(t_game *game, char *line)
 			game->wrong3++;
 		game->i++;
 	}
+	game->checkfc++;
 	ft_checkmap4(game, line);
 	return (1);
 }
@@ -88,6 +89,7 @@ int	ft_parsec(t_game *game, char *line)
 			game->wrong3++;
 		game->i++;
 	}
+	game->checkfc++;
 	ft_checkmap4(game, line);
 	return (1);
 }

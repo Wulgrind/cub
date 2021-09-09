@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:12:22 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 13:53:18 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:48:34 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	ft_ceiling2(t_game *game)
 			& (game->floortexture.img_height - 1);
 		game->floorx += game->floorstepx;
 		game->floory += game->floorstepy;
-		game->color = 65536 * game->param.c[0] + 256
+		game->color = 65536 * game->param.f[0] + 256
 			* game->param.f[1] + game->param.f[2];
 		game->display.data[game->y2 * game->param.screenwidth + game->x2]
 			 = game->color;
-		game->color = 65536 * game->param.f[0] + 256
+		game->color = 65536 * game->param.c[0] + 256
 			* game->param.c[1] + game->param.c[2];
 		game->display.data[((game->param.screenheight - game->y2 - 1)
 				* game->param.screenwidth) + game->x2] = game->color;
