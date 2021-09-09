@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:18 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:18:59 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 10:38:56 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	ft_parsing(t_game *game, char *map)
 	if (!(ft_checkend(map)))
 		return (0);
 	count = open(map, O_RDONLY);
-	if (count < 0)
+	if (count < 0 || ft_directory(map))
 	{
 		write(1, "Error\nCan't read map", 21);
 		return (0);

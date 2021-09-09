@@ -38,7 +38,8 @@ FILES	=	ft_checksprite.c		\
 			loop2.c			\
 			get_next_line/get_next_line.c	\
 			get_next_line/get_next_line_utils.c	\
-			ft_tester.c
+			ft_tester.c	\
+			ft_directory.c
 
 OBJS	= ${FILES:.c=.o}
 

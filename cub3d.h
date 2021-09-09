@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:11:26 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:43:53 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 10:37:34 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,4 +213,6 @@ void	ft_chkorder(t_game *game);
 void	ft_move4(t_game *game);
 int		ft_checkmap4(t_game *game, char *line);
 int		ft_tester(t_game *game);
+int		ft_directory(char	*map);
+
 #endif

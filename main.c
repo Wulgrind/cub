@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:27 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:43:13 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 10:32:05 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 		write (1, "Error\nNo maps given", 20);
 		return (1);
 	}
-	if (!(ft_parsing(&game, av[1]))
+	if (!ft_parsing(&game, av[1])
 		|| (!ft_checksprite(&game)) || (!ft_spriteparam(&game)))
 	{	
 		ft_freeparams(&game);
