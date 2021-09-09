@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:18 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/09 10:38:56 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 10:50:22 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,25 @@ int	ft_parseline(t_game *game, char *line)
 	i = 0;
 	while (line[i] == ' ')
 		i++;
-	if (line[i] == 'N' && line[i + 1] == 'O')
+	if (line[i] == 'N' && line[i + 1] == 'O' && line[i + 2] == ' ')
 		ft_parseno(game, line);
-	if (line[i] == 'S' && line[i + 1] == 'O')
+	else if (line[i] == 'S' && line[i + 1] == 'O' && line[i + 2] == ' ')
 		ft_parseso(game, line);
-	if (line[i] == 'W' && line[i + 1] == 'E')
+	else if (line[i] == 'W' && line[i + 1] == 'E' && line[i + 2] == ' ')
 		ft_parsewe(game, line);
-	if (line[i] == 'E' && line[i + 1] == 'A')
+	else if (line[i] == 'E' && line[i + 1] == 'A' && line[i + 2] == ' ')
 		ft_parseea(game, line);
-	if (line[i] == 'F')
+	else if (line[i] == 'F' && line[i + 1] == ' ')
 		ft_parsef(game, line);
-	if (line[i] == 'C')
+	else if (line[i] == 'C' && line[i + 1] == ' ')
 		ft_parsec(game, line);
-	if (ft_isdigit(line[i]))
+	else if (ft_isdigit(line[i]))
 	{
 		ft_parsemap(game, line);
 		game->isdigit = 1;
 	}
+	else
+		game->param.wrong++;	
 	if (!(ft_isdigit(line[i])) && game->isdigit == 1)
 		game->param.wrong++;
 	return (1);

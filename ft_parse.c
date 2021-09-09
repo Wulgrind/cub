@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:10:42 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:35:08 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/09 11:02:03 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_parseea(t_game *game, char *line)
 		return (0);
 	game->i = 0;
 	game->j++;
-	while (ft_isalpha(line[game->j]))
+	while (line[game->j])
 	{
 		game->param.ea[game->i] = line[game->j];
 		game->i++;
@@ -57,7 +57,7 @@ int	ft_parsewe(t_game *game, char *line)
 		return (0);
 	game->i = 0;
 	game->j++;
-	while (ft_isalpha(line[game->j]))
+	while (line[game->j])
 	{
 		game->param.we[game->i] = line[game->j];
 		game->i++;
@@ -85,7 +85,7 @@ int	ft_parseso(t_game *game, char *line)
 		return (0);
 	game->i = 0;
 	game->j++;
-	while (ft_isalpha(line[game->j]))
+	while (line[game->j])
 	{
 		game->param.so[game->i] = line[game->j];
 		game->i++;
@@ -113,7 +113,7 @@ int	ft_parseno(t_game *game, char *line)
 		return (0);
 	game->i = 0;
 	game->j++;
-	while (ft_isalpha(line[game->j]))
+	while (line[game->j])
 	{
 		game->param.no[game->i] = line[game->j];
 		game->i++;
