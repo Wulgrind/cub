@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 10:32:10 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/09 16:04:17 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/10 16:56:29 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_directory(char *map)
 	}
 	else
 	{
-		close(map);
+		close(ret);
 		return (1);
 	}
 }
