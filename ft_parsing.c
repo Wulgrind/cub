@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:18 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/09 15:55:10 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/10 18:10:44 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_parsing2(t_game *game)
 			write (1, "Error\nMore parameters than expected", 35);
 		return (0);
 	}
-	if (!ft_checkmap(game) || !ft_checkmap2(game) || !ft_checkmap3(game))
+	if (!ft_lastline(game) || !ft_checkmap(game) || !ft_checkmap2(game) || !ft_checkmap3(game))
 	{
 		write(1, "Error\nInvalid map", 18);
 		return (0);
