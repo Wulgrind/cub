@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:18 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/13 11:28:21 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 12:39:55 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ int	ft_parseline(t_game *game, char *line)
 		ft_parsec(game, line);
 	else
 		ft_parseline2(game, line, &i);
-	if (!(ft_isdigit(line[i])) && game->isdigit == 1)
+	if (!(ft_isdigit(line[i])) && game->isdigit == 1 && line[i] != '\n' && line[i] != '\0')
+		game->param.wrong++;
+	if (!ft_checkempty(game, line))
 		game->param.wrong++;
 	return (1);
 }

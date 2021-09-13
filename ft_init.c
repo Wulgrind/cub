@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:13:57 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/13 11:21:13 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 12:31:32 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_initparam2(t_game *game)
 	}
 	game->wrong2 = 0;
 	game->checkfc = 0;
+	game->isempty = 0;
 }
 
 void	ft_initparam(t_game *game)

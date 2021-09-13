@@ -6,11 +6,30 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:25:05 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/13 11:31:39 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 12:38:51 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	ft_checkempty(t_game *game, char *line)
+{
+	int	i;
+	
+	i = 0;
+	while (line[i] == ' ')
+		i++;
+	if ((line[i] == '\n' || line[i] == '\0') && game->isdigit > 0)
+		game->isempty++;
+	i = 0;
+	while (line[i])
+	{
+		if (ft_isdigit(line[i]) && game->isempty > 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_checkend(char *map)
 {
