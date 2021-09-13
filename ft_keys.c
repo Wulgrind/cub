@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:10:25 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/07 11:37:52 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:37:13 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int	ft_freeparams(t_game *game)
 		free (game->param.we);
 	if (game->param.ea)
 		free (game->param.ea);
-	if (game->param.s)
-		free (game->param.s);
 	if (game->param.zbuffer)
 		free (game->param.zbuffer);
 	if (game->param.spriteorder)

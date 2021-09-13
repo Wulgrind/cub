@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:13:57 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/13 12:31:32 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:36:47 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_initparam2(t_game *game)
 
 void	ft_initparam(t_game *game)
 {
-	game->param.s = 0;
+	game->param.s = NULL;
 	game->param.row = 0;
 	game->param.no = NULL;
 	game->param.so = NULL;

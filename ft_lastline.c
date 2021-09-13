@@ -6,11 +6,10 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 18:06:51 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/13 12:45:43 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:09:44 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
-
 
 int	ft_lastline2(t_game *game)
 {

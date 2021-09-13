@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:25:05 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/13 12:38:51 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:13:09 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_checkempty(t_game *game, char *line)
 {
 	int	i;
-	
+
 	i = 0;
 	while (line[i] == ' ')
 		i++;
