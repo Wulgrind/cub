@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:27 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/09 16:00:19 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 11:16:55 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,6 @@ int	main(int ac, char **av)
 	if (!ft_parsing(&game, av[1])
 		|| (!ft_checksprite(&game)) || (!ft_spriteparam(&game)))
 	{	
-		ft_freeparams(&game);
-		return (1);
-	}
-	if (game.checkfc != 2)
-	{
-		write (1, "Error\nMissing argument", 23);
 		ft_freeparams(&game);
 		return (1);
 	}
