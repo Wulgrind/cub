@@ -6,7 +6,7 @@
 /*   By: qbrillai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 14:14:18 by qbrillai          #+#    #+#             */
-/*   Updated: 2021/09/10 18:10:44 by qbrillai         ###   ########.fr       */
+/*   Updated: 2021/09/13 11:07:34 by qbrillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,22 @@ int	ft_checkend(char *map)
 	return (0);
 }
 
+int	ft_parseline2(t_game *game, char *line, int *i)
+{
+	if (ft_isdigit(line[*i]))
+	{
+		ft_parsemap(game, line);
+		game->isdigit = 1;
+	}
+	else if (line[0] == '\n' || line[0] == '\0')
+		game->param.wrong *= 1;
+	else
+		game->param.wrong++;
+	if (!(ft_isdigit(line[*i])) && game->isdigit == 1)
+		game->param.wrong++;
+	return (1);
+}
+
 int	ft_parseline(t_game *game, char *line)
 {
 	int	i;
@@ -53,15 +69,8 @@ int	ft_parseline(t_game *game, char *line)
 		ft_parsef(game, line);
 	else if (line[i] == 'C' && line[i + 1] == ' ')
 		ft_parsec(game, line);
-	else if (ft_isdigit(line[i]))
-	{
-		ft_parsemap(game, line);
-		game->isdigit = 1;
-	}
 	else
-		game->param.wrong++;	
-	if (!(ft_isdigit(line[i])) && game->isdigit == 1)
-		game->param.wrong++;
+		ft_parseline2(game, line, &i);
 	return (1);
 }
 
@@ -81,7 +90,8 @@ int	ft_parsing2(t_game *game)
 			write (1, "Error\nMore parameters than expected", 35);
 		return (0);
 	}
-	if (!ft_lastline(game) || !ft_checkmap(game) || !ft_checkmap2(game) || !ft_checkmap3(game))
+	if (!ft_lastline(game) || !ft_checkmap(game)
+		|| !ft_checkmap2(game) || !ft_checkmap3(game))
 	{
 		write(1, "Error\nInvalid map", 18);
 		return (0);
